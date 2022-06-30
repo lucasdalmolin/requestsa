@@ -1,0 +1,36 @@
+request solutions primeros 3 links
+
+calipso
+SAP
+
+abap
+COT
+
+se dedican: soluciones esker
+esker solutions replican paginas de esker
+meno esker se despliega procuretopay y order to cash
+
+clientes, carrousel con clientes moviendo y boton de mas info
+
+partner salta a otra pagina con logos de partners
+
+crear funcion de cambio de idioma
+separar archivos que voy a usar para request y los demas en otras carpetas y ponerlo en un gitignore asi no lo subo al github
+
+colores: 
+    blanco,
+    rojo,
+    negro,
+
+subir archivos a github y hacer andar la pagina
+
+voy a las 8 el miercoles 29
+
+"deploy": "yarn build && netlify deploy --prod --dir=build"
+
+npm run deploy
+
+"homepage": "http://desktop-33bs53a/requestsa/" direccion de mi casa
+"homepage": "http://DESKTOP-A0UICNE/requestsa/" direccion en request
+
+lo que deberia hacer seria utilizar un mismo o algunos mismos componentes para armar todas las paginas rapido
