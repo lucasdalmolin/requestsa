@@ -36,8 +36,8 @@ const Container = styled.div`
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 export default () => {
 
-  //const rutaServidor = "/"; //Pruebas
-  const rutaServidor = "/requestsa"; //produccion
+  const rutaServidor = "/requestsa"; //Pruebas
+  //const rutaServidor = "/"; //produccion
 
   const navLinks = [
     <NavLinks key={1}>
