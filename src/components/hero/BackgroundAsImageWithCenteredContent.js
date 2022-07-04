@@ -7,9 +7,9 @@ import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, Na
 import Navbar from "components/navbar/Navbar.js";
 
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl`}
+  ${tw`max-w-none w-full bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
-    ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
+    ${tw`text-gray-300 hover:border-gray-300 hover:text-white`}
   }
   ${NavToggle}.closed {
     ${tw`text-gray-100 hover:text-primary-500`}

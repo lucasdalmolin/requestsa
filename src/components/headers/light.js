@@ -9,13 +9,13 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/request/logo.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
-import { DropList, Menu, Item } from '../../helpers/SimpleDropDown'
+
 import Navbar from "components/navbar/Navbar.js";
 import Dropdown from "components/navbar/Dropdown.js";
 
 const Header = tw.header`
   flex justify-between items-center
-  max-w-screen-xl mx-auto flex content-center
+  max-w-screen-lg mx-auto flex content-center
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -23,7 +23,7 @@ export const NavLinks = tw.div`inline-block`;
 export const NavLink = tw.a`
   text-2xl my-2 lg:text-sm lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
-  pb-3 border-b-4 border-transparent hover:border-primary-500 hocus:text-primary-500
+  border-transparent border-b-2
 `;
 
 export const PrimaryLink = tw(NavLink)`
@@ -34,15 +34,15 @@ export const PrimaryLink = tw(NavLink)`
 `;
 
 export const LogoLink = styled(NavLink)`
-  ${tw`flex items-center font-black border-b-0 text-4xl! ml-0!`};
+  ${tw`flex items-center ml-0! bg-red-700`};
 
   img {
-    ${tw`w-32 pt-3`}
+    ${tw`w-32`}
   }
 `;
 
 //Navbar Container
-export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
+export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between z-20`; //ver esto para arreglar el mobile menu
 
 //Hamburger Menu
 export const NavToggle = tw.button`
@@ -50,7 +50,7 @@ export const NavToggle = tw.button`
 `;
 
 //Links Navbar
-//estilos cortados mx-4 my-6 p-8
+
 export const MobileNavLinks = motion(styled.div`
   ${tw`lg:hidden z-10 fixed top-0 inset-x-0 pt-10 pl-10 h-screen border text-center rounded-none text-gray-900 bg-white`} 
   ${NavLinks} {
@@ -59,23 +59,11 @@ export const MobileNavLinks = motion(styled.div`
 `);
 
 export const DesktopNavLinks = tw.nav`
-  hidden lg:flex flex-1 justify-between items-center
+  hidden lg:flex flex-1 justify-between items-center p-8
 `;
 
 export default ({ roundedHeaderButton = false, logoLink, links, className, collapseBreakpointClass = "lg" }) => {
-  /*
-   * This header component accepts an optionals "links" prop that specifies the links to render in the navbar.
-   * This links props should be an array of "NavLinks" components which is exported from this file.
-   * Each "NavLinks" component can contain any amount of "NavLink" component, also exported from this file.
-   * This allows this Header to be multi column.
-   * So If you pass only a single item in the array with only one NavLinks component as root, you will get 2 column header.
-   * Left part will be LogoLink, and the right part will be the the NavLinks component you
-   * supplied.
-   * Similarly if you pass 2 items in the links array, then you will get 3 columns, the left will be "LogoLink", the center will be the first "NavLinks" component in the array and the right will be the second "NavLinks" component in the links array.
-   * You can also choose to directly modify the links here by not passing any links from the parent component and
-   * changing the defaultLinks variable below below.
-   * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
-   */
+
 
   const [click, setClick] = useState(false);
     const [dropdown, setDropdown] = useState(false);
@@ -84,7 +72,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     const closeMobileMenu = () => setClick(false);
 
     const onMouseEnter = () => {
-        if (window.innerWidth < 960) {
+        if (window.innerWidth < 1024) {
         setDropdown(false);
         } else {
         setDropdown(true);
@@ -92,7 +80,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     };
 
     const onMouseLeave = () => {
-        if (window.innerWidth < 960) {
+        if (window.innerWidth < 1024) {
         setDropdown(false);
         } else {
         setDropdown(false);
@@ -106,7 +94,9 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     <NavLinks key={1}>
       <ul className="navbar">
         <li className="nav-item">
-          <NavLink href={ rutaServidor + "/about" }>
+          <NavLink href={ rutaServidor + "/about" }
+              className='nav-links nav-links-mobile'
+          >
             About
           </NavLink>
         </li>
@@ -118,33 +108,41 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
         >
           <NavLink
               href={ rutaServidor + "/profservices" }
-              className='nav-links'            
+              className='nav-links nav-links-mobile'            
           >
             Profesional Services
-          </NavLink>
           {dropdown && <Dropdown />}
+          </NavLink>
         </li>
 
         <li className="nav-item">
-          <NavLink href={ rutaServidor + "/eskersol" }>
+          <NavLink href={ rutaServidor + "/eskersol" }
+              className='nav-links nav-links-mobile'
+          >
             Esker Solutions
           </NavLink>
         </li>
 
         <li className="nav-item">
-          <NavLink href={ rutaServidor + "/customers" }>
+          <NavLink href={ rutaServidor + "/customers" }
+              className='nav-links nav-links-mobile'
+          >
             Customers
           </NavLink>
         </li>
 
         <li className="nav-item">
-          <NavLink href={ rutaServidor + "/partners" }>
+          <NavLink href={ rutaServidor + "/partners" }
+              className='nav-links nav-links-mobile'
+          >
             Partners
           </NavLink>
         </li>
 
         <li className="nav-item">
-          <NavLink href={ rutaServidor + "/company" }>
+          <NavLink href={ rutaServidor + "/company" }
+              className='nav-links nav-links-mobile'
+          >
             Company
           </NavLink>
         </li>
@@ -182,6 +180,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
         {logoLink}
         {/** valores normales: x: "150%", display:"none" */}
         <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
+          {logoLink}
           {links}
         </MobileNavLinks>
         <NavToggle onClick={toggleNavbar}  className={showNavLinks ? "open" : "closed"}>
@@ -191,12 +190,6 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     </Header>
   );
 };
-//onClick={toggleNavbar}
-/* The below code is for generating dynamic break points for navbar.
- * Using this you can specify if you want to switch
- * to the toggleable mobile navbar at "sm", "md" or "lg" or "xl" above using the collapseBreakpointClass prop
- * Its written like this because we are using macros and we can not insert dynamic variables in macros
- */
 
 const collapseBreakPointCssMap = {
   sm: {

@@ -1,33 +1,37 @@
+
+//
+const rutaServidor = "/requestsa";
+
+//
 export const MenuItem = [
         {
         title: 'SAP Developing Services',
-        path: '/marketing',
+        path: `${rutaServidor + '/profservices/sapdev'}`,
         cName: 'dropdown-link'
         },
         {
         title: 'FULL STACK Development',
-        path: '/consulting',
+        path: `${rutaServidor + '/profservices/fullstackdev'}`,
         cName: 'dropdown-link'
         },
         {
         title: 'IT Consulting',
-        path: '/design',
+        path: `${rutaServidor + '/profservices/itconsulting'}`,
         cName: 'dropdown-link'
         },
         {
         title: 'Factura Electrónica',
-        path: '/development',
+        path: `${rutaServidor + '/profservices/fe'}`,
         cName: 'dropdown-link'
         },
         {
         title: 'C.O.T Remito electrónica',
-        path: '/development',
+        path: `${rutaServidor + '/profservices/cot'}`,
         cName: 'dropdown-link'
         },
         {
         title: 'Facturas Apócrifas',
-        path: '/development',
+        path: `${rutaServidor + '/profservices/fa'}`,
         cName: 'dropdown-link'
         }
-        
     ];
