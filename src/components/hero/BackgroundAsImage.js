@@ -5,10 +5,10 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
-import { Link } from "react-router-dom";
+
 
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none`}
+  ${tw`pt-8 max-w-none bg-red-800 fixed h-20 w-screen z-20 p-8 shadow-xl`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`
   }
@@ -90,7 +90,7 @@ export default () => {
 
   return (
     <Container>
-      <StyledHeader tw="bg-red-800 fixed h-20 w-screen z-20 p-8 shadow-xl" links={navLinks} />
+      <StyledHeader tw="" links={navLinks} />
       <br/>
       <OpacityOverlay />
       <HeroContainer>

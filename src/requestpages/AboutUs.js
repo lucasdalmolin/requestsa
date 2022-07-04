@@ -14,7 +14,7 @@ import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, Na
 const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
 
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full`}
+  ${tw`pt-8 max-w-none w-full bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
   }
@@ -29,44 +29,11 @@ const Container = styled.div`
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 export default () => {
 
-  //const rutaServidor = "/"; //produccion
-  const rutaServidor = "/requestsa"; //Pruebas
-
-  const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href={ rutaServidor + "/about" }>
-        About
-      </NavLink>
-      <NavLink href={ rutaServidor + "/profservices" }>
-        Professional Services
-      </NavLink>
-      <NavLink href={ rutaServidor + "/eskersol" }>
-        Esker Solutions
-      </NavLink>
-      <NavLink href={ rutaServidor + "/customers" }>
-        Customers
-      </NavLink>
-      <NavLink href={ rutaServidor + "/partners" }>
-        Partners
-      </NavLink>
-      <NavLink href={ rutaServidor + "/company" }>
-        Company
-      </NavLink>
-      
-    </NavLinks>,
-      <NavLinks key={2}>
-        <PrimaryLink tw="inline-block bg-gradient-to-r from-red-700 to-red-500 hocus:to-red-900" href="/#">
-          Contact Us
-        </PrimaryLink>
-      </NavLinks>
-    ];
-
   return (
     <AnimationRevealPage disabled>
       <Container>
-        <StyledHeader tw="bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl" links={navLinks} />
+        <StyledHeader />
         <br/>
-        <Header />
         <Home />
         <MainFeature1
           subheading={<Subheading></Subheading>}
@@ -75,14 +42,6 @@ export default () => {
           primaryButtonText="See Portfolio"
           imageSrc="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         />
-        {/* Professional Services
-          SAP Developing Services
-          FULL STACK Development
-          IT Consulting
-          Factura Electrónica
-          C.O.T Remito electrónica
-          Facturas Apócrifas */}
-
         <Footer />
       </Container>
     </AnimationRevealPage>

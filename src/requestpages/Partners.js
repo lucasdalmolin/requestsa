@@ -36,44 +36,11 @@ const Container = styled.div`
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 export default () => {
 
- const rutaServidor = "/requestsa"; //Pruebas
- //const rutaServidor = "/"; //produccion
-
-  const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href={ rutaServidor + "/about" }>
-        About
-      </NavLink>
-      <NavLink href={ rutaServidor + "/profservices" }>
-        Professional Services
-      </NavLink>
-      <NavLink href={ rutaServidor + "/eskersol" }>
-        Esker Solutions
-      </NavLink>
-      <NavLink href={ rutaServidor + "/customers" }>
-        Customers
-      </NavLink>
-      <NavLink href={ rutaServidor + "/partners" }>
-        Partners
-      </NavLink>
-      <NavLink href={ rutaServidor + "/company" }>
-        Company
-      </NavLink>
-      
-    </NavLinks>,
-      <NavLinks key={2}>
-        <PrimaryLink tw="inline-block bg-gradient-to-r from-red-700 to-red-500 hocus:to-red-900" href="/#">
-          Contact Us
-        </PrimaryLink>
-      </NavLinks>
-    ];
-
   return (
     <AnimationRevealPage disabled>
       <Container>
-        <StyledHeader tw="bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl" links={navLinks} />
+        <StyledHeader tw="bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl" />
         <br/>
-        <Header />
         <MainFeature1
           subheading={<Subheading>About Treact</Subheading>}
           heading="We are a modern design agency."

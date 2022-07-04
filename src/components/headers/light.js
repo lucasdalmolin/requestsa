@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -9,17 +9,17 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/request/logo.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import { DropList, Menu, Item } from '../../helpers/SimpleDropDown'
+import Navbar from "components/navbar/Navbar.js";
+import Dropdown from "components/navbar/Dropdown.js";
 
 const Header = tw.header`
   flex justify-between items-center
-  max-w-screen-xl mx-auto
+  max-w-screen-xl mx-auto flex content-center
 `;
 
 export const NavLinks = tw.div`inline-block`;
 
-/* hocus: stands for "on hover or focus"
- * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
- */
 export const NavLink = tw.a`
   text-2xl my-2 lg:text-sm lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
@@ -77,29 +77,79 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
 
+  const [click, setClick] = useState(false);
+    const [dropdown, setDropdown] = useState(false);
+
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
+
+    const onMouseEnter = () => {
+        if (window.innerWidth < 960) {
+        setDropdown(false);
+        } else {
+        setDropdown(true);
+        }
+    };
+
+    const onMouseLeave = () => {
+        if (window.innerWidth < 960) {
+        setDropdown(false);
+        } else {
+        setDropdown(false);
+        }
+    };
+
   const rutaServidor = "/requestsa"; //Pruebas
   //const rutaServidor = "/"; //produccion
 
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href={ rutaServidor + "/about" }>
-        About
-      </NavLink>
-      <NavLink href={ rutaServidor + "/profservices" }>
-        Professional Services
-      </NavLink>
-      <NavLink href={ rutaServidor + "/eskersol" }>
-        Esker Solutions
-      </NavLink>
-      <NavLink href={ rutaServidor + "/customers" }>
-        Customers
-      </NavLink>
-      <NavLink href={ rutaServidor + "/partners" }>
-        Partners
-      </NavLink>
-      <NavLink href={ rutaServidor + "/company" }>
-        Company
-      </NavLink>
+      <ul className="navbar">
+        <li className="nav-item">
+          <NavLink href={ rutaServidor + "/about" }>
+            About
+          </NavLink>
+        </li>
+        <li
+          className="nav-item"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+
+        >
+          <NavLink
+              href={ rutaServidor + "/profservices" }
+              className='nav-links'            
+          >
+            Profesional Services
+          </NavLink>
+          {dropdown && <Dropdown />}
+        </li>
+
+        <li className="nav-item">
+          <NavLink href={ rutaServidor + "/eskersol" }>
+            Esker Solutions
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
+          <NavLink href={ rutaServidor + "/customers" }>
+            Customers
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
+          <NavLink href={ rutaServidor + "/partners" }>
+            Partners
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
+          <NavLink href={ rutaServidor + "/company" }>
+            Company
+          </NavLink>
+        </li>
+      </ul>
+      
       
     </NavLinks>,
     <NavLinks key={2}>
@@ -113,11 +163,6 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
 
   const defaultLogoLink = (
-    // <LogoLink href="/">
-    //   <img src={logo} alt="logo" />
-    //   REQUEST <br/>
-    //   Information Technology
-    // </LogoLink>
     <LogoLink href="/requestsa">
       <img src={logo} alt="logo"/>
     </LogoLink>
@@ -130,7 +175,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
-        {links}
+        {defaultLinks}
       </DesktopNavLinks>
 
       <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
