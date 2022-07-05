@@ -23,7 +23,7 @@ const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
 `;
 const Subheading = tw(SubheadingBase)`mb-4`;
-const Heading = tw(SectionHeading)`w-full`;
+const Heading = tw(SectionHeading)`w-full text-3xl`;
 const Description = tw(SectionDescription)`w-full text-center`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`
@@ -46,7 +46,7 @@ const Card = styled.div`
   }
 
   .title {
-    ${tw`mt-4 tracking-wide font-bold text-2xl leading-none`}
+    ${tw`mt-4 tracking-wide text-red-700 font-bold text-2xl leading-none`}
   }
 
   .description {
@@ -88,24 +88,25 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
         {subheading && <Subheading>{subheading}</Subheading>}
         <Heading>{heading}</Heading>
         {description && <Description>{description}</Description>}
-        <VerticalSpacer />
-        {cards.map((card, i) => (
-          <Column key={i}>
-            <Card>
-              <span className="imageContainer">
-                <img src={card.imageSrc || defaultCardImage} alt="" />
-              </span>
-              <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
-                  {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                </p>
-              </span>
-            </Card>
-          </Column>
-        ))}
+        <VerticalSpacer /> 
+          {/* cards vvvv */}
       </ThreeColumnContainer>
       <DecoratorBlob />
     </Container>
   );
 };
+// {cards.map((card, i) => (
+//   <Column key={i}> 
+//     <Card>
+//       {/* <span className="imageContainer">
+//         <img src={card.imageSrc || defaultCardImage} alt="" />
+//       </span> */}
+//       <span className="textContainer">
+//         <span className="title">{card.title || "Fully Secure"}</span>
+//         <p className="description">
+//           {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
+//         </p>
+//       </span>
+//     </Card>
+//   </Column>
+// ))}

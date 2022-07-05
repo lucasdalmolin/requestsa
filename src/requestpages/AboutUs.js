@@ -4,8 +4,11 @@ import tw from "twin.macro";
 import styled from "styled-components"; //eslint-disable-line
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import Home from 'components/hero/PagesComponent'
 import MainFeature1 from "components/features/TwoColWithButton.js";
+
+import Home from 'components/hero/PagesComponent'
+import Objetivos from "components/features/ThreeColWithSideImage";
+import Information from "components/blogs/ThreeColSimpleWithImage";
 import Footer from "components/footers/FiveColumnWithInputForm.js";
 
 import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light";
@@ -14,7 +17,7 @@ import Header, { NavLink, NavLinks, PrimaryLink as PrimaryLinkBase, LogoLink, Na
 const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
 
 const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl`}
+  ${tw`fixed h-20 max-w-none w-screen pt-8 p-10 w-full bg-red-900 bg-gradient-to-r from-red-700 via-red-700  shadow-xl z-20`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
   }
@@ -33,14 +36,22 @@ export default () => {
     <AnimationRevealPage disabled>
       <Container>
         <StyledHeader />
-        <br/>
-        <Home />
-        <MainFeature1
-          subheading={<Subheading></Subheading>}
-          heading="¿Quienes somos?"
-          buttonRounded={false}
-          primaryButtonText="See Portfolio"
-          imageSrc="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+        <Home
+          heading = "ABOUT US"
+          subheading = "Compañia lider en tecnologia"
+        />
+        <Objetivos
+          subheading={false}
+          heading = "NUESTRA MISION"
+        />
+        <Information />
+        <Objetivos
+          subheading={false}
+          heading = "NUESTRA VISION"
+        />
+        <Objetivos
+          subheading={false}
+          heading = "NUESTROS VALORES"
         />
         <Footer />
       </Container>

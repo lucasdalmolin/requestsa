@@ -35,9 +35,12 @@ const Heading = styled.h1`
 `;
 
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow-lg transition duration-300 text-gray-100 
-hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
+hocus:text-gray-200 focus:outline-none focus:shadow-outline
+bg-gradient-to-r from-red-700 to-red-900 hocus:to-red-500 transition duration-300 ease-out hocus:ease-in`;
 
-export default () => {
+export default ({
+  primaryButtonUrl = "/requestsa/about"
+}) => {
 
   return (
     <Container>
@@ -52,7 +55,7 @@ export default () => {
               <br />
               Information Technology
           </Heading>
-          <PrimaryAction tw="bg-gradient-to-r from-red-700 to-red-900 hocus:to-red-500 transition duration-300 ease-out hocus:ease-in">Abous Us</PrimaryAction>
+          <PrimaryAction as="a" href={primaryButtonUrl}>Abous Us</PrimaryAction>
         </Content>
       </HeroContainer>
     </Container>
