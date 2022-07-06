@@ -3,8 +3,8 @@ import tw from "twin.macro"; //eslint-disable-line
 import { css } from "styled-components/macro"; //eslint-disable-line
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
-import Hero from "components/hero/BackgroundAsImage";
-import Home from 'components/hero/BackgroundAsImageWithCenteredContent'
+//COMPONENTES
+import Header from 'components/hero/HeaderLandingPage'
 import About from "components/features/TwoColSingleFeatureWithStats2.js";
 import ProfessionalServices from "components/features/DashedBorderSixFeatures";
 import EskerSolutions from "components/features/TwoColWithTwoFeaturesAndButtons.js";
@@ -15,12 +15,10 @@ import Footer from "components/footers/MiniCenteredFooter.js";
 
 export default () => (
   
-
-  //Para desabilitar la animacion de entrada de la pagina hay que poner disabled delante de AnimationRevealPage: <AnimationRevealPage disabled ></AnimationRevealPage>
+    // Para activar o desactivar la animacion de entrada de los componentes hay que quitar o poner la propiedad "disabled"(sin comillas) en el componente: <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
 
   <AnimationRevealPage disabled>
-    <Home />
-    {/* Tengo que contar 6 paginas + home + footer = 8 */}
+    <Header />
     <About
       subheading = "About Us"
       description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."

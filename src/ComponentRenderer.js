@@ -2,16 +2,23 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js"
 
+
+/*
+
+        COMPONENTE PARA CENTRALIZAR EL RENDERIZADO DE LOS COMPONENTES
+
+*/
+
+import RequestLandingPage from "./RequestLandingPage.js";
 // import EventLandingPage from "demos/EventLandingPage.js";
-import RequestLandingPage from "main/RequestLandingPage.js";
 // import HotelTravelLandingPage from "demos/HotelTravelLandingPage.js";
 // import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
 // import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
 // import ServiceLandingPage from "demos/ServiceLandingPage.js";
 // import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
 
-// import EventLandingPageImageSrc from "images/demo/EventLandingPage.jpeg";
 import RequestLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
+// import EventLandingPageImageSrc from "images/demo/EventLandingPage.jpeg";
 // import HotelTravelLandingPageImageSrc from "images/demo/HotelTravelLandingPage.jpeg";
 // import SaaSProductLandingPageImageSrc from "images/demo/SaaSProductLandingPage.jpeg";
 // import RestaurantLandingPageImageSrc from "images/demo/RestaurantLandingPage.jpeg";
@@ -19,21 +26,20 @@ import RequestLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import HostingCloudLandingPageImageSrc from "images/demo/HostingCloudLandingPage.jpeg";
 
 
-import LoginPage from "pages/Login.js";
-import SignupPage from "pages/Signup.js";
-import PricingPage from "pages/Pricing.js";
-import AboutUsPage from "pages/AboutUs.js";
-import ContactUsPage from "pages/ContactUs.js";
-import BlogIndexPage from "pages/BlogIndex.js";
-import TermsOfServicePage from "pages/TermsOfService.js";
-import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
+// import LoginPage from "other/pages/Login.js";
+// import SignupPage from "other/pages/Signup.js";
+// import PricingPage from "other/pages/Pricing.js";
+// import AboutUsPage from "other/pages/AboutUs.js";
+
+// import TermsOfServicePage from "other/pages/TermsOfService.js";
+// import PrivacyPolicyPage from "other/pages/PrivacyPolicy.js";
 
 import LoginPageImageSrc from "images/demo/LoginPage.jpeg";
 import SignupPageImageSrc from "images/demo/SignupPage.jpeg";
 import PricingPageImageSrc from "images/demo/PricingPage.jpeg";
 import AboutUsPageImageSrc from "images/demo/AboutUsPage.jpeg";
-import ContactUsPageImageSrc from "images/demo/ContactUsPage.jpeg";
-import BlogIndexPageImageSrc from "images/demo/BlogIndexPage.jpeg";
+
+
 import TermsOfServicePageImageSrc from "images/demo/TermsOfServicePage.jpeg";
 import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 
@@ -42,7 +48,7 @@ import IllustrationAndVideoHero from "components/hero/TwoColumnWithVideo.js";
 import IllustrationAndInputHero from "components/hero/TwoColumnWithInput.js";
 import FeaturesAndTestimonialHero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
 import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
-import BackgroundAsImageWithCenteredContentHero from "components/hero/BackgroundAsImageWithCenteredContent.js";
+import BackgroundAsImageWithCenteredContentHero from "components/hero/HeaderLandingPage.js";
 import IllustrationAndPrimaryBackgroundHero from "components/hero/TwoColumnWithPrimaryBackground.js";
 
 import TwoPlansWithDurationSwitcherPricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
@@ -139,50 +145,40 @@ export const components = {
   //   },
   // },
 
-  innerPages: {
-    LoginPage: {
-      component: LoginPage,
-      imageSrc: LoginPageImageSrc,
-      scrollAnimationDisabled: true,
-      url: "/components/innerPages/LoginPage",
-    },
-    SignupPage: {
-      component: SignupPage,
-      url: `/components/innerPages/SignupPage`,
-      imageSrc: SignupPageImageSrc,
-      scrollAnimationDisabled: true,
-    },
-    PricingPage: {
-      component: PricingPage,
-      url: `/components/innerPages/PricingPage`,
-      imageSrc: PricingPageImageSrc,
-    },
-    AboutUsPage: {
-      component: AboutUsPage,
-      url: `/components/innerPages/AboutUsPage`,
-      imageSrc: AboutUsPageImageSrc,
-    },
-    ContactUsPage: {
-      component: ContactUsPage,
-      url: `/components/innerPages/ContactUsPage`,
-      imageSrc: ContactUsPageImageSrc,
-    },
-    BlogIndexPage: {
-      component: BlogIndexPage,
-      url: `/components/innerPages/BlogIndexPage`,
-      imageSrc: BlogIndexPageImageSrc,
-    },
-    TermsOfServicePage: {
-      component: TermsOfServicePage,
-      url: `/components/innerPages/TermsOfServicePage`,
-      imageSrc: TermsOfServicePageImageSrc,
-    },
-    PrivacyPolicyPage: {
-      component: PrivacyPolicyPage,
-      url: `/components/innerPages/PrivacyPolicyPage`,
-      imageSrc: PrivacyPolicyPageImageSrc,
-    }
-  },
+  // innerPages: {
+  //   LoginPage: {
+  //     component: LoginPage,
+  //     imageSrc: LoginPageImageSrc,
+  //     scrollAnimationDisabled: true,
+  //     url: "/components/innerPages/LoginPage",
+  //   },
+  //   SignupPage: {
+  //     component: SignupPage,
+  //     url: `/components/innerPages/SignupPage`,
+  //     imageSrc: SignupPageImageSrc,
+  //     scrollAnimationDisabled: true,
+  //   },
+  //   PricingPage: {
+  //     component: PricingPage,
+  //     url: `/components/innerPages/PricingPage`,
+  //     imageSrc: PricingPageImageSrc,
+  //   },
+  //   AboutUsPage: {
+  //     component: AboutUsPage,
+  //     url: `/components/innerPages/AboutUsPage`,
+  //     imageSrc: AboutUsPageImageSrc,
+  //   },
+  //   TermsOfServicePage: {
+  //     component: TermsOfServicePage,
+  //     url: `/components/innerPages/TermsOfServicePage`,
+  //     imageSrc: TermsOfServicePageImageSrc,
+  //   },
+  //   PrivacyPolicyPage: {
+  //     component: PrivacyPolicyPage,
+  //     url: `/components/innerPages/PrivacyPolicyPage`,
+  //     imageSrc: PrivacyPolicyPageImageSrc,
+  //   }
+  // },
 
   blocks: {
     Hero: {

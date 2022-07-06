@@ -21,7 +21,7 @@ const Header = tw.header`
 export const NavLinks = tw.div`inline-block`;
 
 export const NavLink = tw.a`
-  text-2xl my-2 lg:text-sm lg:mx-6 lg:my-0
+  text-2xl my-2 lg:text-base lg:mx-6 lg:my-0
   font-semibold tracking-wide transition duration-300
   border-transparent border-b-2
 `;
@@ -34,7 +34,7 @@ export const PrimaryLink = tw(NavLink)`
 `;
 
 export const LogoLink = styled(NavLink)`
-  ${tw`flex items-center ml-0! bg-red-700`};
+  ${tw`flex items-center ml-0! bg-red-700 border-b-0`};
 
   img {
     ${tw`w-32`}

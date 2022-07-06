@@ -10,6 +10,7 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 import Features from "components/features/ThreeColSimple.js";
 // import Features from "components/features/ThreeColWithSideImage.js";
 import TeamCardGrid from "components/cards/ProfileThreeColGrid.js";
+import Carrousel from "../components/cards/ThreeColSlider.js"
 
 import SupportIconImage from "images/support-icon.svg";
 import ShieldIconImage from "images/shield-icon.svg";
@@ -41,12 +42,8 @@ export default () => {
       <Container>
         <StyledHeader tw="bg-red-900 bg-gradient-to-r from-red-700 via-red-700 fixed h-20 w-screen z-20 p-10 shadow-xl" />
         <br/>
-        <MainFeature1
-          subheading={<Subheading>About Treact</Subheading>}
-          heading="We are a modern design agency."
-          buttonRounded={false}
-          primaryButtonText="See Portfolio"
-          imageSrc="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
+        <Carrousel 
+          
         />
         <Footer />
       </Container>
